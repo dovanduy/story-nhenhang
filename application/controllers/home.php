@@ -11,6 +11,6 @@ class Home extends CI_Controller{
         $this->load->model('mysql_model');
     }
     public function index(){
-        echo base_url();
+        $this->load->view('index_view.php');
     }
 }
