@@ -49,9 +49,12 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
+/*$db['default']['username'] = 'nhenhang_tienn2t';
+$db['default']['password'] = 'Tienn2t';
+$db['default']['database'] = 'nhenhang_com';*/
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
-$db['default']['database'] = 'story';
+$db['default']['database'] = 'news';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -63,6 +66,25 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+$db['story']['hostname'] = 'localhost';
+/*$db['story']['username'] = 'nhenhang_tienn2t';
+$db['story']['password'] = 'Tienn2t';
+$db['story']['database'] = 'nhenhang_story';*/
+$db['story']['username'] = 'root';
+$db['story']['password'] = 'root';
+$db['story']['database'] = 'story';
+$db['story']['dbdriver'] = 'mysql';
+$db['story']['dbprefix'] = '';
+$db['story']['pconnect'] = TRUE;
+$db['story']['db_debug'] = TRUE;
+$db['story']['cache_on'] = FALSE;
+$db['story']['cachedir'] = '';
+$db['story']['char_set'] = 'utf8';
+$db['story']['dbcollat'] = 'utf8_general_ci';
+$db['story']['swap_pre'] = '';
+$db['story']['autoinit'] = TRUE;
+$db['story']['stricton'] = FALSE;
 
 
 /* End of file database.php */

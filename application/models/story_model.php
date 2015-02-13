@@ -6,10 +6,10 @@
  * Time: 10:14 PM
  * To change this template use File | Settings | File Templates.
  */
-class Mysql_model extends CI_Model{
+class Story_model extends CI_Model{
     public function __construct(){
         parent::__construct();
-        $this->load->database();
+        $this->load->database('story',TRUE);
     }
 
     public function get($table,$query='',$select='',$sort_field='',$sort_type='DESC'){
@@ -26,24 +26,16 @@ class Mysql_model extends CI_Model{
         $result = $this->db->get($table);
         return $result->result_array();
     }
-
-    public function get_one($collection,$query,$select = ''){
-        if(!$collection||!$query){
-            return null;
-        }
-        if($query!=FALSE){
-            $this->db->where($query);
-        }
-        if($select!=''){
-            $this->db->select($select);
-        }
-        $query = $this->db->get($collection);
-        if($query->num_rows>0){
-            return $query->row();
-        }else{
-            return false;
-        }
-
+    /**
+     * Function get one column from table
+     * @param $table
+     * @param $id
+     * @param $var
+     * @return mixed
+     */
+    function get_one($table, $id, $var)
+    {
+        return $this->db->query("select * from $table where $id='$var'");
     }
 
     /**
@@ -67,11 +59,9 @@ class Mysql_model extends CI_Model{
      * @param $data
      * @return mixed
      */
-    function update($table,$query,$data)
+    function update($id_name, $id, $table, $data)
     {
-        if($query){
-            $this->db->where($query);
-        }
+        $this->db->where($id_name, $id);
         $this->db->update($table, $data);
         return $this->db->affected_rows();
     }
@@ -133,7 +123,7 @@ class Mysql_model extends CI_Model{
     }
     public function get_pagination($action,$table,$query,$limit='',$start='',$select='',$sort_field='',$sort_type='DESC'){
         if($query!=''){
-            $this->db->query($query);
+            $this->db->where($query);
         }
         if($action=='total'){
             return $this->db->count_all_results($table);
@@ -151,26 +141,7 @@ class Mysql_model extends CI_Model{
             return $result->result_array();
         }
     }
-    public function get_limit($action,$table,$query,$limit=10,$start=0,$select='',$sort_field='',$sort='DESC'){
-        if($query){
-            $this->db->where($query);
-        }
-        if($action=='total'){
-            return $this->db->count_all_results($table);
-        }else{
-            if($select){
-                $this->db->select($select);
-            }
-            if($limit){
-                $this->db->limit($limit,$start);
-            }
-            if($sort_field){
-                $this->db->order_by($sort_field,$sort);
-            }
-            $result = $this->db->get($table);
-            return $result->result_array();
-        }
-    }
+
     //function get data with condition
     public function getData($table,$item=FALSE){
         if($item!=FALSE){
@@ -209,12 +180,5 @@ class Mysql_model extends CI_Model{
     public function insert_batch($table,$data){
         $this->db->insert_batch($table,$data);
         return $this->db->affected_rows();
-    }
-
-    public function count_event_log($product_id,$event_id){
-        $sql = 'select count(*) as total from razor_fact_event,razor_dim_event where razor_dim_event.event_sk=razor_fact_event.event_sk
-        and razor_dim_event.event_id in ('.$event_id.') and razor_dim_event.product_id='.$product_id;
-        $query = $this->db->query($sql)->row();
-        return $query->total;
     }
 }
