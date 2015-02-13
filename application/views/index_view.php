@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
-
+    <link rel="shortcut icon" href="<?=base_url()?>public/images/logo.jpg">
     <title>
         <?=isset($title)?$title:'Nhenhang.com, truyện ngắn,
     truyện ngôn tình, truyện kiếm hiệp, truyện sắc hiệp, truyện kinh dị';?>
