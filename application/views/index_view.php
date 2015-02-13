@@ -54,142 +54,39 @@
 
 <!-- ######################## Main Menu ######################## -->
 
-<nav>
+<nav style="margin-bottom: 15px;">
 
     <div class="twelve columns header_nav navbar-fixed-top">
-        <div class="row">
+
 
             <ul id="menu-header" class="nav-bar horizontal">
 
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="<?=base_url()?>">Trang chủ</a></li>
+                <li><a href="<?=base_url()?>/truyen-ngan">Truyện ngắn</a></li>
+                <li><a href="<?=base_url()?>/ngon-tinh">Ngôn tình</a></li>
+                <li><a href="<?=base_url()?>/kiem-hiep">Kiếm Hiệp</a></li>
+                <li><a href="<?=base_url()?>/tien-hiep">Tiên Hiệp</a></li>
+                <li><a href="<?=base_url()?>/truyen-teen">Truyện teen</a></li>
+                <li><a href="<?=base_url()?>/trinh-tham">Trinh thám</a></li>
+                <li><a href="<?=base_url()?>/truyen-ma">Truyện ma</a></li>
 
-                <li class="has-flyout">
-                    <a href="#">Example Pages</a><a href="#" class="flyout-toggle"></a>
-                    <ul class="flyout"><!-- Flyout Menu -->
-                        <li class="has-flyout"><a href="blog.html">Blog</a></li>
-                        <li class="has-flyout"><a href="blog_single.html">Blog Single Page</a></li>
-                        <li class="has-flyout"><a href="products-page.html">Products Page</a></li>
-                        <li class="has-flyout"><a href="product-single.html">Product Single</a></li>
-                        <li class="has-flyout"><a href="pricing-table.html">Pricing Table</a></li>
-                        <li class="has-flyout"><a href="contact.html">Contact Page</a></li>
-                    </ul>
-                </li><!-- END Flyout Menu -->
 
-                <li class=""><a href="galleries.html">Boxed Gallery</a></li>
-                <li class=""><a href="portfolio.html">Portfolio Gallery</a></li>
-                <li class=""><a href="pinterest-style.html">Pinterest Gallery</a></li>
-                <li class=""><a href="tiles.html">Tiles</a></li>
 
             </ul>
 
 
 
-        </div>
+
     </div>
 
 </nav>
 
 
 <!-- ######################## Header ######################## -->
-
-<header>
-    <h1 class="heading_supersize">BASE 2013</h1>
-    <h2 class="welcome_text">The future proof starting point for any website!</h2>
-</header>
-
-<!-- ######################## Section ######################## -->
-
-<section class="section_light">
-
-    <div class="row">
-
-        <div class="four columns">
-            <h3><span class="dropcap_red lsf-icon-dropcap" title="camera"></span> Photo Community</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc viverra, lacus id interdum ultrices, elit metus semper tellus, vel lacinia libero purus vitae risus.</p>
-        </div>
-
-
-        <div class="four columns">
-            <h3><span class="dropcap_black lsf-icon-dropcap" title="cloud"></span> Upload Photos</h3>
-            <p> Vivamus tortor tellus, rutrum sit amet mollis vel, imperdiet consectetur orci. Mauris pharetra congue enim, et sagittis lectus congue ut. Cum sociis natoque penatibus.</p>
-        </div>
-
-
-        <div class="four columns">
-            <h3><span class="dropcap_black lsf-icon-dropcap" title="video"></span> Video Tutorials</h3>
-            <p>Sed vitae nisi leo. Nulla tincidunt, turpis non gravida pharetra, diam sapien posuere massa, non luctus leo mauris at sapien. Donec ut fermentum eros.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ######################## Section ######################## -->
-
-<section  class="section_dark">
-
-    <div class="row">
-
-        <h2>Latest Photos by Our Members</h2>
-
-        <div class="two columns">
-            <a href="#" class="th"><img src="<?=base_url();?>public/images/thumb1.jpg" width="100" height="100" alt="desc" /></a>
-        </div>
-
-        <div class="two columns">
-            <a href="#" class="th"><img src="<?=base_url();?>public/images/thumb2.jpg" width="100" height="100"  alt="desc" /></a>
-        </div>
-
-        <div class="two columns">
-            <a href="#" class="th"><img src="<?=base_url();?>public/images/thumb3.jpg" width="100" height="100"  alt="desc" /></a>
-        </div>
-
-        <div class="two columns">
-            <a href="#" class="th"><img src="<?=base_url();?>public/images/thumb4.jpg" width="100" height="100"  alt="desc" /></a>
-        </div>
-
-        <div class="two columns">
-            <a href="#" class="th"><img src="<?=base_url();?>public/images/thumb5.jpg" width="100" height="100"  alt="desc" /></a>
-        </div>
-
-        <div class="two columns">
-            <a href="#" class="th"><img src="<?=base_url();?>public/images/thumb6.jpg" width="100" height="100"  alt="desc" /></a>
-        </div>
-
-
-    </div>
-
-</section>
-
-<!-- ######################## Section ######################## -->
-
-<section class="section_main">
-
-    <h2 style="text-align:center">Discover Hidden Treasures</h2>
-
-    <div class="row">
-
-        <article class="six columns">
-            <div class="panel">
-                <h3>Lorem Ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus.</p>
-                <a href="#" class="button secondary small radius">Learn More &raquo;</a>
-            </div>
-        </article>
-
-
-        <article class="six columns">
-            <div class="panel">
-                <h3>Lorem Ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus.</p>
-                <a href="#" class="button secondary small radius">Learn More &raquo;</a>
-            </div>
-        </article>
-
-    </div>
-
-
-</section>
+<br>
+<div>
+    <?=$this->load->view($view);?>
+</div>
 
 <!-- ######################## Footer ######################## -->
 

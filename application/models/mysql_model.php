@@ -123,7 +123,7 @@ class Mysql_model extends CI_Model{
     }
     public function get_pagination($action,$table,$query,$limit='',$start='',$select='',$sort_field='',$sort_type='DESC'){
         if($query!=''){
-            $this->db->query($query);
+            $this->db->where($query);
         }
         if($action=='total'){
             return $this->db->count_all_results($table);

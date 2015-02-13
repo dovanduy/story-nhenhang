@@ -39,6 +39,8 @@
 */
 
 $route['default_controller'] = "welcome";
+$route['(:any).html'] = 'home/cate/$1';
+$route['(:any)/(:any)'] = 'category/detail/$1/$2';
 $route['404_override'] = '';
 
 
