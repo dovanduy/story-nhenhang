@@ -36,6 +36,9 @@
         .twelve{
             background: #24436d;
         }
+        .nav-bar li{
+            float:left;
+        }
         .nav-bar li a{
             color:white;
         }
@@ -62,13 +65,13 @@
             <ul id="menu-header" class="nav-bar horizontal">
 
                 <li class="active"><a href="<?=base_url()?>">Trang chủ</a></li>
-                <li><a href="<?=base_url()?>/truyen-ngan">Truyện ngắn</a></li>
-                <li><a href="<?=base_url()?>/ngon-tinh">Ngôn tình</a></li>
-                <li><a href="<?=base_url()?>/kiem-hiep">Kiếm Hiệp</a></li>
-                <li><a href="<?=base_url()?>/tien-hiep">Tiên Hiệp</a></li>
-                <li><a href="<?=base_url()?>/truyen-teen">Truyện teen</a></li>
-                <li><a href="<?=base_url()?>/trinh-tham">Trinh thám</a></li>
-                <li><a href="<?=base_url()?>/truyen-ma">Truyện ma</a></li>
+                <li><a href="<?=base_url()?>truyen-ngan.html">Truyện ngắn</a></li>
+                <li><a href="<?=base_url()?>ngon-tinh.html">Ngôn tình</a></li>
+                <li><a href="<?=base_url()?>kiem-hiep.html">Kiếm Hiệp</a></li>
+                <li><a href="<?=base_url()?>tien-hiep.html">Tiên Hiệp</a></li>
+                <li><a href="<?=base_url()?>truyen-teen.html">Truyện teen</a></li>
+                <li><a href="<?=base_url()?>trinh-tham.html">Trinh thám</a></li>
+                <li><a href="<?=base_url()?>truyen-ma.html">Truyện ma</a></li>
 
 
 
