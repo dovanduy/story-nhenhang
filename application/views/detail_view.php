@@ -23,16 +23,17 @@
                         <span>
                             <?=($story->update_unixtime>0)?date('d-m-Y',$story->update_unixtime):date('d-m-Y');?>
                         </span>
+
                     </div>
                     <div class="nine columns">
                         <a href="#"><h3><?=$story->title;?></h3></a>
+                        <div class="fb-like" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                         <p>
                             <?=$story->content;?>
                         </p>
                     </div>
-
+                    <div class="fb-comments" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-numposts="5" data-colorscheme="light"></div>
                 </article>
-
 
 
             </section>
