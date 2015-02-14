@@ -33,9 +33,11 @@ class Story_model extends CI_Model{
      * @param $var
      * @return mixed
      */
-    function get_one($table, $id, $var)
+    function get_one($table, $query)
     {
-        return $this->db->query("select * from $table where $id='$var'");
+        $this->db->where($query);
+        $result = $this->db->get($table);
+        return $result->row();
     }
 
     /**
