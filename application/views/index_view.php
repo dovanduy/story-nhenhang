@@ -23,6 +23,8 @@
     <script src="<?=base_url();?>public/javascripts/jquery.js"></script>
     <script src="<?=base_url();?>public/javascripts/modernizr.foundation.js"></script>
 
+    
+
     <link rel="stylesheet" href="<?=base_url();?>public/ligature.css">
 
     <!-- Google fonts -->
@@ -98,16 +100,27 @@
     <div class="row">
 
         <div class="twelve columns footer">
-            <a href="http://twitter.com/dieterarno" class="lsf-icon" style="font-size:16px; margin-right:15px" title="twitter">Twitter</a>
-            <a href="http://csstemplateheaven.com/csstemplateheaven" class="lsf-icon" style="font-size:16px; margin-right:15px" title="facebook">Facebook</a>
-            <a href="http://csstemplateheaven.com/csstemplateheaven" class="lsf-icon" style="font-size:16px; margin-right:15px" title="pinterest">Pinterest</a>
-            <a href="http://twitter.com/dieterarno" class="lsf-icon" style="font-size:16px" title="instagram">Instagram</a>
+            <a target="_blank" href="https://twitter.com/tienn2t" class="lsf-icon" style="font-size:16px; margin-right:15px" title="twitter">Twitter</a>
+            <a target="_blank" href="https://www.facebook.com/tienn2t?fref=ts" class="lsf-icon" style="font-size:16px; margin-right:15px" title="facebook">Facebook</a>
+            <a target="_blank" href="https://www.pinterest.com/tienthanh3386" class="lsf-icon" style="font-size:16px; margin-right:15px" title="pinterest">Pinterest</a>
+            <a target="_blank" href="https://www.flickr.com" class="lsf-icon" style="font-size:16px" title="instagram">Instagram</a>
         </div>
 
     </div>
 
 </footer>
-
+<div id="my-modal-for-loading" data-backdrop="static" data-keyboard="false" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="loading" style="padding: 10px 0px;">
+                <div class="loading-img text-center">
+                    <img src="http://appdaily.vn/public/images/loading50.gif">
+                </div>
+                <p class="text-center">Vui lòng chờ trong giây lát</p>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- ######################## Scripts ######################## -->
 
 <!-- Included JS Files (Compressed) -->

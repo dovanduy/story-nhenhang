@@ -10,30 +10,33 @@
     <div class="section_main">
 
         <div class="row">
-
             <section class="eight columns">
 
-                <h2><?=$story->category_name;?></h2>
+                <?php if($story):?>
+                    <h2><?=$story->category_name;?></h2>
 
-                <article class="blog_post">
+                    <article class="blog_post">
 
-                    <div class="three columns">
-                        <img src="<?=$story->img;?>" alt="<?=$story->title;?>" title="<?=$story->title;?>">
-                        <br>
-                        <span>
-                            <?=($story->update_unixtime>0)?date('d-m-Y',$story->update_unixtime):date('d-m-Y');?>
-                        </span>
+                        <div class="three columns">
+                            <img src="<?=$story->img;?>" alt="<?=$story->title;?>" title="<?=$story->title;?>">
+                            <br>
+                            <span>
+                                <?=($story->update_unixtime>0)?date('d-m-Y',$story->update_unixtime):date('d-m-Y');?>
+                            </span>
 
-                    </div>
-                    <div class="nine columns">
-                        <a href="#"><h3><?=$story->title;?></h3></a>
-                        <div class="fb-like" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                        <p>
-                            <?=$story->content;?>
-                        </p>
-                    </div>
-                    <div class="fb-comments" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-numposts="5" data-colorscheme="light"></div>
-                </article>
+                        </div>
+                        <div class="nine columns">
+                            <a href="#"><h3><?=$story->title;?></h3></a>
+                            <div class="fb-like" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                            <p>
+                                <?=$story->content;?>
+                            </p>
+                        </div>
+                        <div class="fb-comments" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-numposts="5" data-colorscheme="light"></div>
+                    </article>
+                <?php else:?>
+                    <h3>Không tìm thấy truyện tương ứng.</h3>
+                <?php endif;?>
 
 
             </section>
@@ -41,36 +44,17 @@
             <section class="four columns">
                 <h2>Xem nhiều nhất</h2>
                 <div class="panel">
-                    <h3>heading</h3>
-                    <p> Vivamus tortor tellus, rutrum sit amet mollis vel, imperdiet consectetur orci. Mauris pharetra congue enim, et sagittis lectus congue ut. Cum sociis natoque penatibus. Vivamus tortor tellus, rutrum sit amet mollis vel.</p>
+                    <h3>Giới thiệu</h3>
+                    <p> Tuyển tập những truyện mới nhất, hay nhất hiện nay.</p>
 
-                    <h3>Accordion Panel</h3>
+                    <h3>Truyện</h3>
 
-                    <ul class="accordion">
-                        <li class="active">
-                            <div class="title">
-                                <h5>Accordion Panel 1</h5>
-                            </div>
-                            <div class="content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </li>
+                    <ul style="list-style: decimal;">
+                        <?php foreach($hot_view_stories as $row):?>
                         <li>
-                            <div class="title">
-                                <h5>Accordion Panel 2</h5>
-                            </div>
-                            <div class="content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
+                            <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['story_slug'];?>"><?=$row['title']?></a>
                         </li>
-                        <li>
-                            <div class="title">
-                                <h5>Accordion Panel 3</h5>
-                            </div>
-                            <div class="content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                            </div>
-                        </li>
+                        <?php endforeach;?>
                     </ul>
 
 
@@ -93,7 +77,7 @@
         <h2>Truyện được xem nhiều nhất</h2>
         <?php foreach($hot_view_stories as $row):?>
         <div class="two columns">
-            <a href="<?=base_url('story/detail/'.$row['id'])?>" title="<?=$row['title']?>" class="th">
+            <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['title']?>" class="th">
                 <img src="<?=$row['img']?>" width="100" height="100" title="<?=$row['title']?>" alt="<?=$row['title']?>">
             </a>
 

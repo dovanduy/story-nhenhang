@@ -1,5 +1,5 @@
 <header>
-    <h1 class="heading_supersize">Nhenhang.com</h1>
+    <!--<h1 class="heading_supersize">Nhenhang.com</h1>-->
     <h2 class="welcome_text">Truyện mới nhất, hay nhất hiện nay!</h2>
 </header>
 
@@ -20,8 +20,8 @@
             ?>
             <article class="four columns featured_post">
 
-                <b><a href="<?=base_url('story/detail/'.$row['id'])?>"><?=$row['title'];?></a></b>
-                <a href="<?=base_url('story/detail/'.$row['id'])?>" title="<?=$row['title']?>">
+                <b><a href="<?=base_url('story/detail/'.$row['story_slug'])?>"><?=$row['title'];?></a></b>
+                <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['title']?>">
                     <img src="<?=$row['img']?>" alt="desc" width="220px;" title="<?=$row['title']?>" alt="<?=$row['title']?>">
                 </a>
                 <div class="post_meta">
@@ -57,7 +57,7 @@
         <h2>Truyện được xem nhiều nhất</h2>
         <?php foreach($hot_view_stories as $row):?>
         <div class="two columns">
-            <a href="<?=base_url('story/detail/'.$row['id'])?>" title="<?=$row['title']?>" class="th">
+            <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['title']?>" class="th">
                 <img src="<?=$row['img']?>" width="100" height="100" title="<?=$row['title']?>" alt="<?=$row['title']?>">
             </a>
 

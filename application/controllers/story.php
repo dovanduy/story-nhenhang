@@ -10,28 +10,27 @@ class Story extends CI_Controller{
         parent::__construct();
         $this->load->model('story_model');
     }
-    public function detail($id){
-        $id = (int)$id;
+    public function detail($slug){
         //lay thong tin truyen
         $data['story'] = $this->story_model->get_one(
             'story',
             array(
-                'id'=>$id
+                'story_slug'=>$slug
             )
         );
         if($data['story']){
-            $data['title'] = $data['story']->category_slug.'-'.$data['story']->title;
+            $data['title'] = $data['story']->category_name.'-'.$data['story']->title;
         }
         $data['hot_view_stories'] = $this->story_model->get_pagination(
             'get',
             'story',
             array(
                 'top_hot'=>1,
-                'id !='=>$id
+                'story_slug !='=>$slug
             ),
             10,
             0,
-            'id,title,img,update_unixtime,total_view,category_slug,category_name',
+            'id,title,img,update_unixtime,total_view,category_slug,category_name,story_slug',
             'update_unixtime'
         );
         $data['view'] = 'detail_view';
