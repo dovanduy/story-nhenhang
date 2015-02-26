@@ -54,7 +54,7 @@ class Home extends CI_Controller{
             'story',
             $query
         );
-        $limit = 24;
+        $limit = 20;
         $link = base_url($slug);
         $data['page_nav'] = $this->paginate->paging($total,$limit,$start,$link);
         $data['view'] = 'category_view';

@@ -73,7 +73,18 @@
 
 <section class="section_main">
 
-    <h2 style="text-align:center">Quảng cáo</h2>
+    <!-- CPM AFFILIATION TAG MEGABANNER 728X90 (nhenhang.com) -->
+    <script type='text/javascript'>
+        var cpma_rnd=Math.floor(Math.random()*99999999999);
+        document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-728x90.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
+    </script>
+    <!-- FIN TAG CPM AFFILIATION -->
+    <!-- CPM AFFILIATION TAG BANNER 468X60 (nhenhang.com) -->
+    <script type='text/javascript'>
+        var cpma_rnd=Math.floor(Math.random()*99999999999);
+        document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-468x60.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
+    </script>
+    <!-- FIN TAG CPM AFFILIATION -->
 
     <div class="row">
 

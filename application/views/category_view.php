@@ -48,6 +48,18 @@
 
 
                 </div>
+                <!-- CPM AFFILIATION TAG RECTANGLE 300X250 (nhenhang.com) -->
+                <script type='text/javascript'>
+                    var cpma_rnd=Math.floor(Math.random()*99999999999);
+                    document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-300x250.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
+                </script>
+                <!-- FIN TAG CPM AFFILIATION -->
+                <!-- CPM AFFILIATION TAG SKYSCRAPER 300X600 (nhenhang.com) -->
+                <script type='text/javascript'>
+                    var cpma_rnd=Math.floor(Math.random()*99999999999);
+                    document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-300x600.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
+                </script>
+                <!-- FIN TAG CPM AFFILIATION -->
             </section>
 
         </div>
@@ -56,5 +68,51 @@
         </div>
 
     </div>
+    <section class="section_main">
+
+        <!-- CPM AFFILIATION TAG MEGABANNER 728X90 (nhenhang.com) -->
+        <script type='text/javascript'>
+            var cpma_rnd=Math.floor(Math.random()*99999999999);
+            document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-728x90.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
+        </script>
+        <!-- FIN TAG CPM AFFILIATION -->
+        <!-- CPM AFFILIATION TAG BANNER 468X60 (nhenhang.com) -->
+        <script type='text/javascript'>
+            var cpma_rnd=Math.floor(Math.random()*99999999999);
+            document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-468x60.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
+        </script>
+        <!-- FIN TAG CPM AFFILIATION -->
+
+        <div class="row">
+
+            <article class="six columns">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- nhenhang.com -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:336px;height:280px"
+                     data-ad-client="ca-pub-4844837048893553"
+                     data-ad-slot="5121243026"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+
+
+            <article class="six columns">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- nhenhang.com -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:336px;height:280px"
+                     data-ad-client="ca-pub-4844837048893553"
+                     data-ad-slot="5121243026"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+
+        </div>
+
+
+    </section>
 
 </section>
