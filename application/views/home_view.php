@@ -73,25 +73,33 @@
 
 <section class="section_main">
 
-    <h2 style="text-align:center">Discover Hidden Treasures</h2>
+    <h2 style="text-align:center">Quảng cáo</h2>
 
     <div class="row">
 
         <article class="six columns">
-            <div class="panel">
-                <h3>Lorem Ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus.</p>
-                <a href="#" class="button secondary small radius">Learn More &raquo;</a>
-            </div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- nhenhang.com -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:336px;height:280px"
+                 data-ad-client="ca-pub-4844837048893553"
+                 data-ad-slot="5121243026"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </article>
 
 
         <article class="six columns">
-            <div class="panel">
-                <h3>Lorem Ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus fermentum metus, id commodo sapien. Donec cursus fermentum metus.</p>
-                <a href="#" class="button secondary small radius">Learn More &raquo;</a>
-            </div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- nhenhang.com -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:336px;height:280px"
+                 data-ad-client="ca-pub-4844837048893553"
+                 data-ad-slot="5121243026"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </article>
 
     </div>
