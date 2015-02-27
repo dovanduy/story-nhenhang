@@ -123,9 +123,22 @@ EOF;
                 'story_id'=>$data->id
             )
         );
-        echo '<pre>';
-        print_r($chapter);
-        echo '</pre>';
+        $insert = "INSERT INTO chapter(story_name,story_id,chapter_name,chapter,
+        chapter_number,img,content,update_time) values(:story_name,:story_id,:chapter_name,:chapter,
+        :chapter_number,:img,:content,:update_time)";
+        foreach($chapter as $row){
+            $smtp = $db->prepare($insert);
+            $smtp->bindParam(':story_name',$data->title,SQLITE3_TEXT);
+            $smtp->bindParam(':story_id',$data->id,SQLITE3_INTEGER);
+            $smtp->bindParam(':chapter_name',$row['chapter_name'],SQLITE3_TEXT);
+            $smtp->bindParam(':chapter',$row['chapter'],SQLITE3_TEXT);
+            $smtp->bindParam(':chapter_number',$row['chapter_number'],SQLITE3_INTEGER);
+            $smtp->bindParam(':img',$data->img,SQLITE3_INTEGER);
+            $smtp->bindParam(':content',$row['content'],SQLITE3_TEXT);
+            $smtp->bindParam(':update_time',$row['update_time'],SQLITE3_TEXT);
+            $smtp->execute();
+        }
 
+        echo 'het nhe';
     }
 }
