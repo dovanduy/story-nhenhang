@@ -177,7 +177,7 @@ class Paginate{
         return $page_nav;
     }
 
-    public function paging($totalRecord, $limit,$start,$link='') {
+    public function paging($totalRecord, $limit,$start,$link='',$html='') {
         // var_dump($link); die;
         $totalPage = ceil($totalRecord/$limit);
         $page = $start/$limit+1;
@@ -188,8 +188,8 @@ class Paginate{
         if ($totalPage>1){
             if ($page > 1) {
                 $previous = $page-1;
-                $paging .="<li><a num='0' class='choose-page' href='".$link.".html'>Trang đầu</a></li>";
-                $paging .="<li><a num='".(($previous-1)*$limit)."' class='choose-page' href='".$link."_".(($previous-1)*$limit).".html'>«</a></li>";
+                $paging .="<li><a num='0' class='choose-page' href='".$link.$html."'>Trang đầu</a></li>";
+                $paging .="<li><a num='".(($previous-1)*$limit)."' class='choose-page' href='".$link."_".(($previous-1)*$limit).$html."'>«</a></li>";
 
             }
 
@@ -199,7 +199,7 @@ class Paginate{
                         if ($page == $i) {
                             $paging .= "<li class='active'><a href='javascript:void(0);'>$i</a></li>";
                         } else {
-                            $paging .="<li><a href='".$link."_".(($i-1)*$limit).".html' num='".(($i-1)*$limit).".html' class='choose-page' >$i</a></li>";
+                            $paging .="<li><a href='".$link."_".(($i-1)*$limit).$html."' num='".(($i-1)*$limit).$html."' class='choose-page' >$i</a></li>";
                         }
                     }
                 } else{
@@ -207,7 +207,7 @@ class Paginate{
                         if ($page == $i) {
                             $paging .= "<li class='active'><a href='javascript:void(0);'>$i</a></li>";
                         } else {
-                            $paging .="<li><a href='".$link."_".(($i-1)*$limit).".html' num='".(($i-1)*$limit)."' class='choose-page'>$i</a></li>";
+                            $paging .="<li><a href='".$link."_".(($i-1)*$limit).$html."' num='".(($i-1)*$limit)."' class='choose-page'>$i</a></li>";
 
                         }
                     }
@@ -236,8 +236,8 @@ class Paginate{
             }
             if ($page < $totalPage){
                 $next = $page+1;
-                    $paging .="<li><a href='".$link."_".(($next-1)*$limit).".html' num='".(($next-1)*$limit)."' class='choose-page'>»</a></li>";
-                    $paging .="<li><a href='".$link."_".(($totalPage-1)*$limit).".html' num='".(($totalPage-1)*$limit)."' class='choose-page'>Trang cuối</a></li>";
+                    $paging .="<li><a href='".$link."_".(($next-1)*$limit).$html."' num='".(($next-1)*$limit)."' class='choose-page'>»</a></li>";
+                    $paging .="<li><a href='".$link."_".(($totalPage-1)*$limit).$html."' num='".(($totalPage-1)*$limit)."' class='choose-page'>Trang cuối</a></li>";
 
             }
             $paging .='</ul>';

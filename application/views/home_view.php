@@ -1,6 +1,12 @@
-<header>
+<header style="clear:both;">
     <!--<h1 class="heading_supersize">Nhenhang.com</h1>-->
     <h2 class="welcome_text">Truyện mới nhất, hay nhất hiện nay!</h2>
+    <script type="text/javascript"><!--
+        document.write('<s'+'cript type="text/javascript" src="http://cpm.edomz.com/show.php?z=41&pl=25046&j=1&code='+new Date().getTime()+'"></s'+'cript>');
+        // --></script>
+    <noscript>
+        <iframe src="http://cpm.edomz.com/show.php?z=41&pl=25046" width="738" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+    </noscript>
 </header>
 
 <!-- ######################## Section ######################## -->
@@ -20,8 +26,8 @@
             ?>
             <article class="four columns featured_post">
 
-                <b><a href="<?=base_url('story/detail/'.$row['story_slug'])?>"><?=$row['title'];?></a></b>
-                <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['title']?>">
+                <b><a href="<?=base_url('story/'.$row['story_slug'])?>"><?=$row['title'];?></a></b>
+                <a href="<?=base_url('story/'.$row['story_slug'])?>" title="<?=$row['title']?>">
                     <img src="<?=$row['img']?>" alt="desc" width="220px;" title="<?=$row['title']?>" alt="<?=$row['title']?>">
                 </a>
                 <div class="post_meta">
@@ -57,7 +63,7 @@
         <h2>Truyện được xem nhiều nhất</h2>
         <?php foreach($hot_view_stories as $row):?>
         <div class="two columns">
-            <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['title']?>" class="th">
+            <a href="<?=base_url('story/'.$row['story_slug'])?>" title="<?=$row['title']?>" class="th">
                 <img src="<?=$row['img']?>" width="100" height="100" title="<?=$row['title']?>" alt="<?=$row['title']?>">
             </a>
 
@@ -85,35 +91,6 @@
         document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-468x60.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
     </script>
     <!-- FIN TAG CPM AFFILIATION -->
-
-    <div class="row">
-
-        <article class="six columns">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- nhenhang.com -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:336px;height:280px"
-                 data-ad-client="ca-pub-4844837048893553"
-                 data-ad-slot="5121243026"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </article>
-
-
-        <article class="six columns">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- nhenhang.com -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:336px;height:280px"
-                 data-ad-client="ca-pub-4844837048893553"
-                 data-ad-slot="5121243026"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </article>
-
-    </div>
 
 
 </section>

@@ -1,3 +1,12 @@
+<header>
+    <h2 class="welcome_text">Truyện mới nhất, hay nhất hiện nay!</h2>
+    <script type="text/javascript"><!--
+        document.write('<s'+'cript type="text/javascript" src="http://cpm.edomz.com/show.php?z=41&pl=25046&j=1&code='+new Date().getTime()+'"></s'+'cript>');
+        // --></script>
+    <noscript>
+        <iframe src="http://cpm.edomz.com/show.php?z=41&pl=25046" width="738" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+    </noscript>
+</header>
 <section>
 
     <div class="section_main">
@@ -12,10 +21,10 @@
                         <article class="blog_post">
 
                             <div class="three columns">
-                                <a title="<?=$row['story_slug'];?>" href="<?=base_url('story/detail/'.$row['story_slug'])?>" class="th"><img width="150px" src="<?=$row['img'];?>" alt="desc"></a>
+                                <a title="<?=$row['story_slug'];?>" href="<?=base_url('story/'.$row['story_slug'])?>" class="th"><img width="150px" src="<?=$row['img'];?>" alt="desc"></a>
                             </div>
                             <div class="nine columns">
-                                <a title="<?=$row['story_slug'];?>" href="<?=base_url('story/detail/'.$row['story_slug'])?>"><h3><?=$row['title'];?></h3></a>
+                                <a title="<?=$row['story_slug'];?>" href="<?=base_url('story/'.$row['story_slug'])?>"><h3><?=$row['title'];?></h3></a>
                                 <p>Cập nhật ngày: <?=date('d-m-Y',$row['update_unixtime']);?></p>
                             </div>
 
@@ -40,7 +49,7 @@
                     <ul style="list-style: decimal;">
                         <?php foreach($hot_view_stories as $row):?>
                             <li>
-                                <a href="<?=base_url('story/detail/'.$row['story_slug'])?>" title="<?=$row['story_slug'];?>"><?=$row['title']?></a>
+                                <a href="<?=base_url('story/'.$row['story_slug'])?>" title="<?=$row['story_slug'];?>"><?=$row['title']?></a>
                             </li>
                         <?php endforeach;?>
                     </ul>
@@ -60,6 +69,12 @@
                     document.write("<scr"+"ipt type='text/javascript' src='http://www.cpmaffiliation.com/44683-300x600.js?rnd="+cpma_rnd+"'></scr"+"ipt>");
                 </script>
                 <!-- FIN TAG CPM AFFILIATION -->
+                <script type="text/javascript"><!--
+                    document.write('<s'+'cript type="text/javascript" src="http://cpm.edomz.com/show.php?z=62&pl=25121&j=1&code='+new Date().getTime()+'"></s'+'cript>');
+                    // --></script>
+                <noscript>
+                    <iframe src="http://cpm.edomz.com/show.php?z=62&pl=25121" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+                </noscript>
             </section>
 
         </div>

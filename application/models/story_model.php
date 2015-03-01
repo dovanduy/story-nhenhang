@@ -183,4 +183,9 @@ class Story_model extends CI_Model{
         $this->db->insert_batch($table,$data);
         return $this->db->affected_rows();
     }
+
+    public function get_all_table(){
+        $db = $this->load->database('story',TRUE);
+        return $db->list_tables();
+    }
 }

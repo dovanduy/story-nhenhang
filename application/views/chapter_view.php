@@ -1,5 +1,4 @@
 <header>
-    <h1 class="heading_supersize">Nhenhang.com</h1>
     <h2 class="welcome_text">Truyện mới nhất, hay nhất hiện nay!</h2>
     <script type="text/javascript"><!--
         document.write('<s'+'cript type="text/javascript" src="http://cpm.edomz.com/show.php?z=41&pl=25046&j=1&code='+new Date().getTime()+'"></s'+'cript>');
@@ -35,8 +34,19 @@
                             <a href="#"><h3><?=$story->title;?></h3></a>
                             <div class="fb-like" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                             <p>
-                                <?=$story->content;?>
+                                <?php if($total>0):?>
+                                    <?php foreach($chapter as $row):?>
+                                        <div class="box_comment">
+                                            <a href="<?=base_url('view/'.$story->story_slug.'/'.$row['chapter_slug'])?>"><?=$row['chapter'].': '.$row['chapter_name'].' - '.$row['update_time']?>.</a>
+                                        </div>
+                                    <?php endforeach;?>
+                                <?php else:?>
+                                    <div class="box_comment">
+                                        <b>Chúng tôi đang cập nhật truyện, vui lòng quay lại sau.</b>
+                                    </div>
+                                <?php endif;?>
                             </p>
+                            <?=$page_nav;?>
                         </div>
                         <div class="fb-comments" data-href="<?=base_url(substr($_SERVER['REQUEST_URI'],1));?>" data-numposts="5" data-colorscheme="light"></div>
                     </article>

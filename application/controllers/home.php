@@ -56,7 +56,7 @@ class Home extends CI_Controller{
         );
         $limit = 20;
         $link = base_url($slug);
-        $data['page_nav'] = $this->paginate->paging($total,$limit,$start,$link);
+        $data['page_nav'] = $this->paginate->paging($total,$limit,$start,$link,'.html');
         $data['view'] = 'category_view';
         $data['title'] = $slug.', nhenhang.com, truyện tình yêu, tâm sự, kiếm hiệp, kinh dị, tiên hiệp hay nhất, mới nhất hiện nay.';
         $data['list_apps'] = $this->story_model->get_pagination(
@@ -81,5 +81,19 @@ class Home extends CI_Controller{
             'update_unixtime'
         );
         $this->load->view('index_view',$data);
+    }
+
+
+    public function change(){
+        $db = $this->load->database('story',TRUE);
+        $tables = $db->list_tables();
+        foreach($tables as $table){
+            if(preg_match('/[\w\d]_story/',$table)){
+                $sql = 'ALTER TABLE '.$table.' ADD COLUMN (chapter_slug TEXT, story_slug TEXT)';
+                $db->query($sql);
+                echo $table.'<br>';
+            }
+        }
+
     }
 }
