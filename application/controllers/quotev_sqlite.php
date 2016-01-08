@@ -22,7 +22,8 @@ class Quotev_Sqlite extends CI_Controller{
               story_name           TEXT    NOT NULL,
               description TEXT,
               status  INTEGER DEFAULT 0,
-              updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+              updated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+              is_full integer default 0);
 EOF;
         if(!$db->exec($story_table)){
             exit($db->lastErrorMsg());
@@ -72,10 +73,12 @@ EOF;
 
             $insert = "INSERT INTO story(id,story_name,description) values(:id,:story_name,:description)";
             $smtp = $db->prepare($insert);
+            $isFull = 1;
 
             $smtp->bindParam(':id', $data['id'], SQLITE3_INTEGER);
             $smtp->bindParam(':story_name', $data['story_name'], SQLITE3_TEXT);
             $smtp->bindParam(':description', $data['description'], SQLITE3_TEXT);
+            $smtp->bindParam(':is_full', $isFull, SQLITE3_TEXT);
             $smtp->execute();
         }
         //lay toan bo chuong
