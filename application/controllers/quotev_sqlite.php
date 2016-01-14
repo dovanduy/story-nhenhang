@@ -67,8 +67,14 @@ EOF;
         $this->load->model('story_model');
         //doc du lieu tu mysql
         $lists = $this->story_model->get(
-            'quotev_story'
+            'quotev_story',
+            '',
+            '',
+            'id',
+            'ASC',
+            50
         );
+        $storyIds = [];
         foreach($lists as $data) {
 
             $insert = "INSERT INTO story(id,story_name,description) values(:id,:story_name,:description)";
@@ -80,10 +86,17 @@ EOF;
             $smtp->bindParam(':description', $data['description'], SQLITE3_TEXT);
             $smtp->bindParam(':is_full', $isFull, SQLITE3_TEXT);
             $smtp->execute();
+            $storyIds[] = $data['id'];
         }
         //lay toan bo chuong
         $chapters = $this->story_model->get(
-            'quotev_chapter'
+            'quotev_chapter',
+            '',
+            '',
+            '',
+            '',
+            '',
+            $storyIds
         );
         $insert = "INSERT INTO chapter(story_name,story_id,chapter_name,
         chapter_number,content) values(:story_name,:story_id,:chapter_name,

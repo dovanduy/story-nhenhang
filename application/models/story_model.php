@@ -12,16 +12,22 @@ class Story_model extends CI_Model{
         $this->load->database('story',TRUE);
     }
 
-    public function get($table,$query='',$select='',$sort_field='',$sort_type='DESC'){
+    public function get($table,$query='',$select='',$sort_field='',$sort_type='DESC',$limit = 0,$whereIn= null){
         if($query!=''){
             $this->db->where($query);
 
+        }
+        if($whereIn){
+            $this->db->where_in('story_id',$whereIn);
         }
         if($select){
             $this->db->select($select);
         }
         if($sort_field!=''){
             $this->db->order_by($sort_field,$sort_type);
+        }
+        if($limit) {
+            $this->db->limit(30);
         }
         $result = $this->db->get($table);
         return $result->result_array();
