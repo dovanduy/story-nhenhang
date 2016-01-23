@@ -11,7 +11,7 @@ class Quotev_Sqlite extends CI_Controller{
         parent::__construct();
         $this->load->model('story_model');
     }
-    public function story(){
+    public function story($category=0){
         $db = new Sqlite('./public/story');
         if(!$db){
             die($db->lastErrorMsg());
@@ -54,11 +54,11 @@ EOF;
         }
         echo 'done';
         $db->close();
-        $this->import_data();
+        $this->import_data($category);
 
     }
 
-    public function import_data(){
+    public function import_data($category){
         $db = new Sqlite('./public/story');
         if(!$db){
             die($db->lastErrorMsg());
@@ -66,50 +66,92 @@ EOF;
 
         $this->load->model('story_model');
         //doc du lieu tu mysql
-        $lists = $this->story_model->get(
-            'quotev_story',
-            '',
-            '',
-            'id',
-            'ASC',
-            50
-        );
+        if($category==0) {
+            $lists = $this->story_model->get(
+                'quotev_story',
+                '',
+                '',
+                'id',
+                'ASC',
+                50
+            );
+        }else{
+            $lists = $this->story_model->get(
+                'story',
+                array(
+                    'category_id' => $category,
+                    'hot' =>1,
+                    'status' => 'Full'
+                ),
+                '',
+                'id',
+                'ASC',
+                50
+            );
+        }
         $storyIds = [];
         foreach($lists as $data) {
-
             $insert = "INSERT INTO story(id,story_name,description) values(:id,:story_name,:description)";
             $smtp = $db->prepare($insert);
-            $isFull = 1;
 
             $smtp->bindParam(':id', $data['id'], SQLITE3_INTEGER);
             $smtp->bindParam(':story_name', $data['story_name'], SQLITE3_TEXT);
             $smtp->bindParam(':description', $data['description'], SQLITE3_TEXT);
-            $smtp->bindParam(':is_full', $isFull, SQLITE3_TEXT);
+            //$smtp->bindParam(':is_full', $isFull, SQLITE3_TEXT);
             $smtp->execute();
             $storyIds[] = $data['id'];
-        }
-        //lay toan bo chuong
-        $chapters = $this->story_model->get(
-            'quotev_chapter',
-            '',
-            '',
-            '',
-            '',
-            '',
-            $storyIds
-        );
-        $insert = "INSERT INTO chapter(story_name,story_id,chapter_name,
+
+            if($category){
+                $chapter_table = 'chapter_'.substr(trim($data['story_slug']),0,2);
+                $chapters = $this->story_model->get(
+                    $chapter_table,
+                    array(
+                        'story_id' => $data['id']
+                    ),
+                    '',
+                    '',
+                    '',
+                    50
+                );
+                $insert = "INSERT INTO chapter(story_name,story_id,chapter_name,
         chapter_number,content) values(:story_name,:story_id,:chapter_name,
         :chapter_number,:content)";
-        foreach ($chapters as $data) {
-            $smtp = $db->prepare($insert);
-            $smtp->bindParam(':story_name', $data['story_name'], SQLITE3_TEXT);
-            $smtp->bindParam(':story_id', $data['story_id'], SQLITE3_INTEGER);
-            $smtp->bindParam(':chapter_name', $data['chapter_name'], SQLITE3_TEXT);
-            $smtp->bindParam(':chapter_number', $data['chapter_number'], SQLITE3_INTEGER);
-            $smtp->bindParam(':content', $data['content'], SQLITE3_TEXT);
-            $smtp->execute();
+                foreach ($chapters as $data) {
+                    $smtp = $db->prepare($insert);
+                    $smtp->bindParam(':story_name', $data['story_name'], SQLITE3_TEXT);
+                    $smtp->bindParam(':story_id', $data['story_id'], SQLITE3_INTEGER);
+                    $smtp->bindParam(':chapter_name', $data['chapter_name'], SQLITE3_TEXT);
+                    $smtp->bindParam(':chapter_number', $data['chapter_number'], SQLITE3_INTEGER);
+                    $smtp->bindParam(':content', $data['content'], SQLITE3_TEXT);
+                    $smtp->execute();
+                }
+            }
         }
+        //lay toan bo chuong
+        if($category == 0) {
+            $chapters = $this->story_model->get(
+                'quotev_chapter',
+                '',
+                '',
+                '',
+                '',
+                '',
+                $storyIds
+            );
+            $insert = "INSERT INTO chapter(story_name,story_id,chapter_name,
+        chapter_number,content) values(:story_name,:story_id,:chapter_name,
+        :chapter_number,:content)";
+            foreach ($chapters as $data) {
+                $smtp = $db->prepare($insert);
+                $smtp->bindParam(':story_name', $data['story_name'], SQLITE3_TEXT);
+                $smtp->bindParam(':story_id', $data['story_id'], SQLITE3_INTEGER);
+                $smtp->bindParam(':chapter_name', $data['chapter_name'], SQLITE3_TEXT);
+                $smtp->bindParam(':chapter_number', $data['chapter_number'], SQLITE3_INTEGER);
+                $smtp->bindParam(':content', $data['content'], SQLITE3_TEXT);
+                $smtp->execute();
+            }
+        }
+
         echo 'het nhe';
     }
 }
