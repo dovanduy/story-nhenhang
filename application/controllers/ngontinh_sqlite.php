@@ -6,7 +6,7 @@
  * Time: 9:55 AM
  */
 require_once $_SERVER['DOCUMENT_ROOT'].'/sqlite.php';
-class Truyenfull_Sqlite extends CI_Controller{
+class Ngontinh_Sqlite extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('story_model');
@@ -78,7 +78,7 @@ EOF;
             '',
             '',
             '',
-            [4,5],
+            [4],
             'id'
         );
 
@@ -94,20 +94,16 @@ EOF;
             $lists = $this->story_model->get(
                 'story',
                 array(
-                    //'hot'=>1,
-                    'status'=>'Full'
+                    'hot'=>10
                 ),
                 '',
                 'id',
-                'ASC',
-                20,
-                array($category),
-                'category_id'
+                'ASC'
             );
             $storyIds = [];
             foreach($lists as $data) {
                 if($data['status'] == 'Full'){
-                    $isFull = 3;
+                    $isFull = 1;
                 }else{
                     $isFull = 0;
                 }
@@ -133,8 +129,7 @@ EOF;
                         ),
                         '',
                         'chapter_number',
-                        'ASC',
-                        70
+                        'ASC'
                     );
                     echo $data['story_name'].' total = '.count($chapters).PHP_EOL;
                     $total += count($chapters);

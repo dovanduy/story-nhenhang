@@ -10,6 +10,7 @@ class Story extends CI_Controller{
         parent::__construct();
         $this->load->model('story_model');
     }
+
     public function detail($slug){
         $slug = explode('_',$slug);
         if(count($slug)>1){

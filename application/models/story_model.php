@@ -12,13 +12,13 @@ class Story_model extends CI_Model{
         $this->load->database('story',TRUE);
     }
 
-    public function get($table,$query='',$select='',$sort_field='',$sort_type='DESC',$limit = 0,$whereIn= null){
+    public function getLike($table,$query='',$select='',$sort_field='',$sort_type='DESC',$limit = 0,$whereIn= null,$fieldIn = 'story_id'){
         if($query!=''){
-            $this->db->where($query);
+            $this->db->like('author',$query);
 
         }
         if($whereIn){
-            $this->db->where_in('story_id',$whereIn);
+            $this->db->where_in($fieldIn,$whereIn);
         }
         if($select){
             $this->db->select($select);
@@ -27,7 +27,28 @@ class Story_model extends CI_Model{
             $this->db->order_by($sort_field,$sort_type);
         }
         if($limit) {
-            $this->db->limit(30);
+            $this->db->limit($limit);
+        }
+        $result = $this->db->get($table);
+        return $result->result_array();
+    }
+
+    public function get($table,$query='',$select='',$sort_field='',$sort_type='DESC',$limit = 0,$whereIn= null,$fieldIn = 'story_id'){
+        if($query!=''){
+            $this->db->where($query);
+
+        }
+        if($whereIn){
+            $this->db->where_in($fieldIn,$whereIn);
+        }
+        if($select){
+            $this->db->select($select);
+        }
+        if($sort_field!=''){
+            $this->db->order_by($sort_field,$sort_type);
+        }
+        if($limit) {
+            $this->db->limit($limit);
         }
         $result = $this->db->get($table);
         return $result->result_array();

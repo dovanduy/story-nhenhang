@@ -13,4 +13,6 @@ class Category extends CI_Controller{
     public function detail($cate_slug,$id){
         echo $id.$cate_slug;
     }
+
+
 }

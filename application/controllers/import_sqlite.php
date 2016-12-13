@@ -49,7 +49,7 @@ EOF;
         echo 'Successful';
         $db->close();
     }
-    public function story(){
+    public function story($id,$isFull=1){
         $db = new Sqlite('./public/story');
         if(!$db){
             die($db->lastErrorMsg());
@@ -79,18 +79,26 @@ EOF;
               chapter_number INTEGER,
               img        INTEGER,
               content         TEXT,
-              update_time TEXT);
+              update_time TEXT,
+              is_full INTEGER DEFAULT $isFull,
+		status INTEGER DEFAULT 0);
 EOF;
         if(!$db->exec($chapter_table)){
             exit($db->lastErrorMsg());
         }
+	$indexes = <<<EOF
+	CREATE INDEX chapter_number ON chapter(chapter_number)
+EOF;
+	if(!$db->exec($indexes)){
+            exit($db->lastErrorMsg());
+        }
         echo 'done';
         $db->close();
-        $this->import_data();
+        $this->import_data($id);
 
     }
 
-    public function import_data(){
+    public function import_data($id){
         $db = new Sqlite('./public/story');
         if(!$db){
             die($db->lastErrorMsg());
@@ -101,7 +109,7 @@ EOF;
         $data = $this->story_model->get_one(
             'story',
             array(
-                'id'=>5101
+                'id'=>$id
             )
         );
 
@@ -113,7 +121,7 @@ EOF;
         $smtp->bindParam(':short_description',$data->id,SQLITE3_TEXT);
         $smtp->execute();
         //lay toan bo chuong
-        $chapter_table = strtoupper(substr(trim($data->story_slug),0,1)).'_story';
+        $chapter_table = strtolower(substr(trim($data->story_slug),0,2)).'_story';
         echo '<pre>';
         print_r($chapter_table);
         echo '</pre>';
