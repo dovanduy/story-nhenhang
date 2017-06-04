@@ -45,15 +45,15 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'story';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 /*$db['default']['username'] = 'nhenhang_tienn2t';
 $db['default']['password'] = 'Tienn2t';
 $db['default']['database'] = 'nhenhang_com';*/
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
+/*$db['default']['username'] = 'root';
+$db['default']['password'] = '';
 $db['default']['database'] = 'news';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
@@ -65,16 +65,16 @@ $db['default']['char_set'] = 'utf8';
 $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+$db['default']['stricton'] = FALSE;*/
 
 $db['story']['hostname'] = 'localhost';
 /*$db['story']['username'] = 'nhenhang_tienn2t';
 $db['story']['password'] = 'Tienn2t';
 $db['story']['database'] = 'nhenhang_story';*/
 $db['story']['username'] = 'root';
-$db['story']['password'] = 'root';
-$db['story']['database'] = 'story';
-$db['story']['dbdriver'] = 'mysql';
+$db['story']['password'] = '';
+$db['story']['database'] = 'nhenhang';
+$db['story']['dbdriver'] = 'mysqli';
 $db['story']['dbprefix'] = '';
 $db['story']['pconnect'] = TRUE;
 $db['story']['db_debug'] = TRUE;
